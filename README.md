@@ -41,8 +41,39 @@ The server starts on **http://localhost:8080**
 | http://localhost:8080/h2-console | H2 database console |
 | http://localhost:8080/api-docs | Raw OpenAPI JSON |
 
+### Important: Database Reset on Restart
+By default, this application uses an H2 in-memory database. 
+This means that every time you restart the backend, the database is completely erased. 
+You will need to recreate your admin user on every fresh startup.
+
 ### First-time setup
-After starting the app, create your first admin user via the API (see [User Management](#user-management-admin-only-except-me) below), then authenticate.
+After installing all dependencies and starting the server, 
+follow these exact steps to initialize the system:
+
+### 1-Create the Admin: 
+Your first step is to create an admin user using the one-time setup endpoint. 
+This requires no authentication.
+--> Open the Interactive Swagger UI: http://localhost:8080/swagger-ui.html
+--> Locate and execute the POST /api/v1/setup/admin endpoint.
+
+### 2-Generate a Token: 
+Once the admin is created, you need to authenticate to get your access token.
+--> Still in Swagger UI, use POST /api/v1/auth/login with your new admin credentials.
+--> Copy the token string from the response body.
+
+### 3-Authorize Swagger:
+Click the Authorize 🔒 button at the top of the Swagger UI page.
+--> Enter Bearer <your-token> and click Authorize.
+
+### 4-Explore the APIs: 
+You can now use the Swagger UI to freely test all secured APIs, 
+including User Management, Dashboard Summary, and Financial Records.
+
+### 5-Connect the Frontend: 
+--> Once you have generated data, log in via your React frontend.
+--> You can view all records seamlessly on the frontend dashboard. 
+--> Note that from the frontend UI, Admins have full access to create and manage data entries, 
+while other roles (like Analysts) are restricted to view-only access.
 
 ### Authenticate via Swagger UI
 1. Open `http://localhost:8080/swagger-ui.html`
