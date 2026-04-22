@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.*;
  * Automatically disabled once any user exists in the database.
  */
 @RestController
-@RequestMapping("/api/setup")
+@RequestMapping("/api/v1/setup")
 @RequiredArgsConstructor
 @Tag(name = "Setup", description = "One-time bootstrap — creates the first admin. Disabled after first user exists.")
 public class SetupController {

@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.*;
 import java.time.LocalDate;
 
 @RestController
-@RequestMapping("/api/records")
+@RequestMapping("/api/v1/records")
 @RequiredArgsConstructor
 @SecurityRequirement(name = "BearerAuth")
 @Tag(name = "Financial Records", description = "Manage income and expense records")

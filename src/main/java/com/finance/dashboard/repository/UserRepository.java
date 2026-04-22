@@ -23,6 +23,8 @@ public interface UserRepository extends JpaRepository<User, Long> {
     boolean existsByUsernameAndDeletedFalse(String username);
 
     boolean existsByEmailAndDeletedFalse(String email);
+    boolean existsByUsername(String username);
+    boolean existsByEmail(String email);
 
     @Query("SELECT u FROM User u WHERE u.deleted = false")
     Page<User> findAllActive(Pageable pageable);

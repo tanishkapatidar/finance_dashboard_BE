@@ -17,7 +17,7 @@ import java.time.LocalDate;
 import java.time.YearMonth;
 
 @RestController
-@RequestMapping("/api/dashboard")
+@RequestMapping("/api/v1/dashboard")
 @RequiredArgsConstructor
 @SecurityRequirement(name = "BearerAuth")
 @Tag(name = "Dashboard", description = "Aggregated analytics and summary data — all authenticated roles")
